@@ -1,0 +1,103 @@
+@font-face {
+    font-weight: 900;
+    font-family: 'Montserrat-Black';
+    src: url("Montserrat-Black.ttf");
+}
+@font-face {
+    font-weight: 900;
+    font-family: 'Montserrat-ExtraBold';
+    src: url("Montserrat-ExtraBold.ttf");
+}
+@font-face {
+    font-weight: 900;
+    font-family: 'Montserrat-Bold';
+    src: url("Montserrat-Bold.ttf");
+}
+@font-face {
+    font-weight: 900;
+    font-family: 'Montserrat-SemiBold';
+    src: url("Montserrat-SemiBold.ttf");
+}
+@font-face {
+    font-weight: 900;
+    font-family: 'Montserrat-Medium';
+    src: url("Montserrat-Medium.ttf");
+}
+@font-face {
+    font-weight: 900;
+    font-family: 'Montserrat-Regular';
+    src: url("Montserrat-Regular.ttf");
+}
+@font-face {
+    font-weight: 900;
+    font-family: 'Montserrat-Light.ttf';
+    src: url("Montserrat-Light.ttf");
+}
+@font-face {
+    font-weight: 900;
+    font-family: 'Montserrat-ExtraLight';
+    src: url("Montserrat-ExtraLight.ttf");
+}
+@font-face {
+    font-weight: 900;
+    font-family: 'Montserrat-Thin';
+    src: url("Montserrat-Thin.ttf");
+}
+
+html {
+    height: 100%;
+    width: 100%;
+    background: #1f1c29 ;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    top: 0px; left: 0px;
+    background-attachment: fixed;
+}
+
+.txt1 {
+    font-family: 'Montserrat-Black';
+    color: white;
+    font-size: 100px;
+    text-align: center;
+}
+.txt4 {
+    font-family: 'Montserrat-Regular';
+    color: white;
+    font-size: 30px;
+    position: relative;
+    top: 490px;
+    text-align: center;
+}
+.txt3 {
+    font-family: 'Montserrat-Regular';
+    color: white;
+    font-size: 80px;
+    position: relative;
+    top: 316px; left: 551px;
+    text-decoration: none;
+}
+.txt3:hover{
+    color: #95a2db;
+}
+.txt2 {
+    font-family: 'Montserrat-Regular';
+    color: white;
+    font-size: 13px;
+    width: 100%;
+    position: relative;
+    top: 700px;
+    text-align: center;
+
+}
+a {
+    color: white;
+}
+
+.container{
+    background: #1a1a1a;
+    border-radius: 20px;
+    height: 900px; width: 900px;
+    position: relative;
+    left: 298px;
+}
