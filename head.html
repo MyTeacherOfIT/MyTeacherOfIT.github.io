@@ -9,6 +9,8 @@
   <script>
       function vibro() {
           window.navigator.vibrate(500);
+	  if (navigator.vibrate) {
+	      alert("READY")
       }
 
 	  
