@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>PYATSUXA CLICK BOT</title>
+</head>
+<body>
+  <button id="vibro_on">ON</button>
+  <button id="vibro_off">OFF</button>
+  <button onclick="vibro()" id="do-vibro">TEST</button>
+  <script>
+    let doVibro = false;
+    document.getElementById("vibro_on").addEventListener('click', () => {
+      doVibro = true;
+    });
+    document.getElementById("vibro_off").addEventListener('click', () => {
+      doVibro = false;
+    });
+    document.getElementById("do-vibro").addEventListener('click', () => {
+      doVibro ? navigator.vibrate([50]) : navigator.vibrate([0]);
+    });
+  </script>
+</body>
+</html>
