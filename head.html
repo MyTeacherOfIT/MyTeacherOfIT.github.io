@@ -7,8 +7,13 @@
 <body>
   <button onclick="vibro()" id="do-vibro">DO</button>
   <script>
+      function vibro() {
+          window.navigator.vibrate(500);
+      }
+
+	  
     document.getElementById("do-vibro").addEventListener('click', () => {
-      window.navigator.vibrate(500)
+      window.navigator.vibrate(500);
     });
   </script>
 </body>
