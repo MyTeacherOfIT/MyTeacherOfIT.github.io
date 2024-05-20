@@ -3,30 +3,167 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clicker Bot</title>
+    <title>Coin Clicker</title>
     <style>
-        #clickButton {
-            padding: 10px 20px;
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .stats {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .button-container {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+        }
+        .button {
+            background-color: #007aff;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
             font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #005bb5;
+        }
+        .hidden {
+            display: none;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .modal.active {
+            display: block;
+        }
+        .coin {
+            width: 150px;
+            margin: 50px auto;
+            cursor: pointer;
+            background-image: url("photo1.png");
+        }
+        .coin:hover, .coin: {
+            width: 150px;
+            margin: 50px auto;
+            cursor: pointer;
+            background-image: url("photo2.png");
         }
     </style>
 </head>
 <body>
-    <div style="position: fixed;">
-        <button id="clickButton" style="position: fixed;width:500px;height:500px;">Click me!</button><br><br>
-        <p style="position: fixed;;">Clicks: <span id="clickCount" style="display:fixed;">0</span></p>
+    <div class="container">
+        <div class="stats">
+            <p>Монеты: <span id="coinCount">0</span></p>
+            <p>Энергия: <span id="energyCount">1000</span>/<span id="FULL">1000</span></p>
+        </div>
+        <button id="coin" class="coin"></button>
+        <div class="button-container">
+            <button class="button" id="upgradeButton">Апгрейд</button>
+        </div>
     </div>
+
+    <div id="upgradeModal" class="modal">
+        <h3>Выберите апгрейд</h3>
+        <button class="button" id="upgradeEnergy">Апгрейд Энергии</button>
+        <button class="button" id="upgradeCoins">Апгрейд Монет за Клик</button>
+    </div>
+
     <script>
-        let clickCount = 0;
-        const clickInterval = 1000;
-        function clickButton() {
-            document.getElementById('clickButton').click();
+        let coins = 0;
+        let energy = 1000;
+        let maxEnergy = 1000;
+        let coinsPerClick = 1;
+        let isPrimaryImage = true;
+
+        const coinElement = document.getElementById('coin');
+        const coinCountElement = document.getElementById('coinCount');
+        const energyCountElement = document.getElementById('energyCount');
+        const FULLElement = document.getElementById('FULL');
+        const upgradeButton = document.getElementById('upgradeButton');
+        const upgradeModal = document.getElementById('upgradeModal');
+        const upgradeEnergyButton = document.getElementById('upgradeEnergy');
+        const upgradeCoinsButton = document.getElementById('upgradeCoins');
+
+        const primaryImageSrc = 'https://MyTeacherOfIT.github.io/photo1.png';
+        const secondaryImageSrc = 'https://MyTeacherOfIT.github.io/photo2.png';
+
+        // Обновление количества монет и энергии
+        function updateStats() {
+            coinCountElement.textContent = coins;
+            energyCountElement.textContent = energy;
+            FULL.textContent = maxEnergy
         }
-        document.getElementById('clickButton').addEventListener('click', () => {
-            clickCount++;
-            document.getElementById('clickCount').textContent = clickCount;
+
+        // Смена изображения монеты
+        function toggleCoinImage() {
+            if (isPrimaryImage) {
+                coinElement.src = secondaryImageSrc;
+            } else {
+                coinElement.src = primaryImageSrc;
+            }
+            isPrimaryImage = !isPrimaryImage;
+        }
+
+        // Обработчик кликов по монете
+        coinElement.addEventListener('click', () => {
+            if (energy > 0) {
+                coins += coinsPerClick;
+                energy--;
+                toggleCoinImage();
+                updateStats();
+            }
         });
-        setInterval(clickButton, clickInterval);
+
+        // Открытие модального окна апгрейда
+        upgradeButton.addEventListener('click', () => {
+            upgradeModal.classList.add('active');
+        });
+
+        // Обработчик кликов по кнопке апгрейда энергии
+        upgradeEnergyButton.addEventListener('click', () => {
+            maxEnergy += 500;
+            upgradeModal.classList.remove('active');
+            updateStats();
+        });
+
+        // Обработчик кликов по кнопке апгрейда монет за клик
+        upgradeCoinsButton.addEventListener('click', () => {
+            coinsPerClick++;
+            upgradeModal.classList.remove('active');
+        });
+
+        // Начисление монет каждые 3 минуты
+        setInterval(() => {
+            coins += 4;
+            updateStats();
+        }, 180000);
+        updateStats();
     </script>
 </body>
 </html>
