@@ -1,12 +1,12 @@
-<html lang="ru"><div id="in-page-channel-node-id" data-channel-name="in_page_channel_j_IOXE"></div><head>
+<!--<html lang="ru"><div id="in-page-channel-node-id" data-channel-name="in_page_channel_j_IOXE"></div><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Счетчик нажатий</title>
 </head>
-<body>
+<body style="display:;">
     <h1>Счетчик нажатий</h1>
     <p>Количество нажатий: <span id="counter"></span></p>
-    <button id="clickButton" style="width:200px;height:200px;" onclick="updateCounter()">Нажми меня!</button>
+    <button id="clickButton" style="width:600px;height:600px;" onclick="updateCounter()">Нажми меня!</button>
     <script>
         let count = 0;
         const counterElement = document.getElementById('counter');
@@ -15,6 +15,45 @@
             count++;
             counterElement.innerText = count;
         }
+    </script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clicker Bot</title>
+    <style>
+        #clickButton {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <button id="clickButton">Click me!</button>
+    <p>Clicks: <span id="clickCount">0</span></p>
+
+    <script>
+        // Переменные для хранения количества кликов и интервала
+        let clickCount = 0;
+        const clickInterval = 1000; // Интервал в миллисекундах (1000 мс = 1 секунда)
+
+        // Функция для клика по кнопке
+        function clickButton() {
+            document.getElementById('clickButton').click();
+        }
+
+        // Обработчик клика по кнопке
+        document.getElementById('clickButton').addEventListener('click', () => {
+            clickCount++;
+            document.getElementById('clickCount').textContent = clickCount;
+        });
+
+        // Запуск интервала для автоматических кликов
+        setInterval(clickButton, clickInterval);
     </script>
 </body>
 </html>
