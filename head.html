@@ -19,15 +19,25 @@
     <p id="coin"></p>
     
     <script>
-        var WebApp = window.Telegram.WebApp;
-        var startAppId = WebApp.start_param();
-        document.getElementById('coin').textContent = startAppId;
-        WebApp.expand();
+        let tg = window.Telegram.WebApp;]
+        
+        tg.expand();
+        tg.MainButton.text = "Закрыть!)";
+        tg.MainButton.setText("Закрыть!)";
+        tg.MainButton.textColor = "#F55353";
+        tg.MainButton.color = "#143F6B";
+        tg.MainButton.setParams({"color": "#143F6B"});
+        MainButton.show();
+
         Telegram.WebApp.MainButton.onClick(function () {
             Telegram.WebApp.showAlert('Main Button was clicked')
-        });	
-        var MainButton = WebApp.MainButton;        
-        MainButton.show();
+        	if (tg.MainButton.isVisible){
+        		tg.MainButton.hide()
+        	}
+          else{ //иначе
+          	tg.MainButton.show()
+          }
+        });
     </script>
 </body>
 </html>
