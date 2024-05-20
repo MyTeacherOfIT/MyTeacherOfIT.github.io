@@ -23,6 +23,9 @@
         var startAppId = WebApp.start_param();
         document.getElementById('coin').textContent = startAppId;
         WebApp.expand();
+        Telegram.WebApp.MainButton.onClick(function () {
+            Telegram.WebApp.showAlert('Main Button was clicked')
+        });	
         var MainButton = WebApp.MainButton;        
         MainButton.show();
     </script>
