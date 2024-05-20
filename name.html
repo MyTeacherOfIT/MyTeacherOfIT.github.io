@@ -1,24 +1,3 @@
-<!--<html lang="ru"><div id="in-page-channel-node-id" data-channel-name="in_page_channel_j_IOXE"></div><head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Счетчик нажатий</title>
-</head>
-<body style="display:;">
-    <h1>Счетчик нажатий</h1>
-    <p>Количество нажатий: <span id="counter"></span></p>
-    <button id="clickButton" style="width:600px;height:600px;" onclick="updateCounter()">Нажми меня!</button>
-    <script>
-        let count = 0;
-        const counterElement = document.getElementById('counter');
-
-        function updateCounter() {
-            count++;
-            counterElement.innerText = count;
-        }
-    </script>
-</body>
-</html> -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,27 +12,20 @@
     </style>
 </head>
 <body>
-    <div style="display:fixed;">
-        <button id="clickButton">Click me!</button>
-        <p>Clicks: <span id="clickCount">0</span></p>
+    <div style="position: fixed;">
+        <button id="clickButton" style="position: fixed;width:500px;height:500px;">Click me!</button><br><br>
+        <p style="position: fixed;;">Clicks: <span id="clickCount" style="display:fixed;">0</span></p>
     </div>
     <script>
-        // Переменные для хранения количества кликов и интервала
         let clickCount = 0;
-        const clickInterval = 1000; // Интервал в миллисекундах (1000 мс = 1 секунда)
-
-        // Функция для клика по кнопке
+        const clickInterval = 1000;
         function clickButton() {
             document.getElementById('clickButton').click();
         }
-
-        // Обработчик клика по кнопке
         document.getElementById('clickButton').addEventListener('click', () => {
             clickCount++;
             document.getElementById('clickCount').textContent = clickCount;
         });
-
-        // Запуск интервала для автоматических кликов
         setInterval(clickButton, clickInterval);
     </script>
 </body>
