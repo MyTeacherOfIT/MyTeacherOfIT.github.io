@@ -7,18 +7,12 @@
 </head>
 <body>
     <div id="content">The URL parameter is: </div>
-
     <script>
-        // Функция для получения параметра URL по его имени
         function getURLParameter(name) {
             const urlParams = new URLSearchParams(window.location.search);
             return urlParams.get(name);
         }
-
-        // Получаем параметр 'url'
         const urlParam = getURLParameter('url');
-
-        // Находим элемент с id 'content' и обновляем его содержимое
         document.getElementById('content').textContent += urlParam;
     </script>
 </body>
