@@ -64,6 +64,8 @@
         }
         .coin {
             width: 150px;
+            position: relative;
+            top: 200px;
             margin: 50px auto;
             cursor: pointer;
             background-image: url("photo1.png");
@@ -76,11 +78,11 @@
         }
     </style>
 </head>
-<body>
+<body style="width: 18rem;">
     <div class="container">
         <div class="stats">
-            <p>Монеты: <span id="coinCount">0</span></p>
-            <p>Энергия: <span id="energyCount">1000</span>/<span id="FULL">1000</span></p>
+            <span>Монеты: <span id="coinCount">0</span></span>
+            <span>Энергия: <span id="energyCount">1000</span>/<span id="FULL">1000</span></span>
         </div>
         <button id="coin" class="coin"></button>
         <div class="button-container">
@@ -90,10 +92,11 @@
 
     <div id="upgradeModal" class="modal">
         <h3>Выберите апгрейд</h3>
-        <button class="button" id="upgradeEnergy">Апгрейд Энергии</button>
-        <button class="button" id="upgradeCoins">Апгрейд Монет за Клик</button>
+        <button class="button" id="upgradeEnergy">MultiTap</button><br>
+        <button class="button" id="upgradeCoins">Energy limit</button>
     </div>
-
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script>$('.modal-content').hide();</script>
     <script>
         let coins = 0;
         let energy = 1000;
