@@ -78,36 +78,54 @@
         }
     </style>
 </head>
-<body style="width: 18rem;">
-    <!--
-    <div class="container">
-        <div class="stats">
-            <span>Монеты: <span id="coinCount">0</span></span>
-            <span>Энергия: <span id="energyCount">1000</span>/<span id="FULL">1000</span></span>
+        <main>
+        <div align="center">
+            <a href="https://ton.org/"><img width="48" src="./assets/tapps.png" alt="logo of telegram web apps"></a>
         </div>
-        <button id="coin" class="coin"></button>
-        <div class="button-container">
-            <button class="button" id="upgradeButton">Апгрейд</button>
-        </div>
-    </div>
+        <h1>Modals</h1>
+        <button onclick="Telegram.WebApp.showAlert('Hello World!');">Launch Alert</button>
+        <button onclick="showPopup();">Launch Popup</button>
 
-    <div id="upgradeModal" class="modal">
-        <h3>Выберите апгрейд</h3>
-        <button class="button" id="upgradeEnergy">MultiTap</button><br>
-        <button class="button" id="upgradeCoins">Energy limit</button>
-    </div>
-    -->
-    <button onclick="Telegram.WebApp.showAlert('Hello World!');">Launch Alert</button>
+        <h1>Links</h1>
+        <ul>
+            <li>
+                <a href="javascript:Telegram.WebApp.openTelegramLink('https://t.me/trendingapps');">Open link within Telegram</a>
+            </li>
+            <li>
+                <a href="javascript:Telegram.WebApp.openLink('https://ton.org/');">Open link in external browser</a>
+            </li>
+            <li>
+                <a href="javascript:Telegram.WebApp.openLink('https://telegra.ph/api',{try_instant_view:true});">Open link inside Telegram webview</a>
+            </li>
+        </ul>
 
-
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>    <script>$('.modal-content').hide();</script>
+        <h1>Buttons</h1>
+        <button onclick="Telegram.WebApp.expand();">Expand Webview</button>
+        <button onclick="toggleMainButton();">Toggle Main Button</button>
+    </main>
+    <div id="viewport"></div>
+    <div id="viewport-params-size"></div>
+    <div id="viewport-params-expand"></div>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
+        // Init TWA
         Telegram.WebApp.ready();
 
+        // Event occurs whenever theme settings are changed in the user's Telegram app (including switching to night mode).
         Telegram.WebApp.onEvent('themeChanged', function() {
             document.documentElement.className = Telegram.WebApp.colorScheme;
         });
 
+        // Show main button
+        Telegram.WebApp.MainButton.setParams({
+            text: 'Main Button'
+        });
+        Telegram.WebApp.MainButton.onClick(function () {
+            Telegram.WebApp.showAlert('Main Button was clicked')
+        });
+        Telegram.WebApp.MainButton.show();
+
+        // Function to call showPopup API
         function showPopup() {
             Telegram.WebApp.showPopup({
                 title: 'Title',
@@ -123,7 +141,44 @@
             });
         };
 
+        // Function to toggle main TWA button
+        function toggleMainButton() {
+            if (Telegram.WebApp.MainButton.isVisible) {
+                Telegram.WebApp.MainButton.hide();
+            } else {
+                Telegram.WebApp.MainButton.show();
+            }
+        };
+
+        function setViewportData() {
+            var sizeEl = document.getElementById('viewport-params-size');
+            sizeEl.innerText = 'width: ' + window.innerWidth + ' x ' +
+                'height: ' + Telegram.WebApp.viewportStableHeight;
+
+            var expandEl = document.querySelector('#viewport-params-expand');
+            expandEl.innerText = 'Is Expanded: ' + (Telegram.WebApp.isExpanded ? 'true' : 'false');
+        }
+
+        Telegram.WebApp.setHeaderColor('secondary_bg_color');
+
+        setViewportData();
+        Telegram.WebApp.onEvent('viewportChanged', setViewportData);
+
+        Telegram.WebApp.onEvent('themeChanged', function() {
+            document.body.setAttribute('style', '--bg-color:' + Telegram.WebApp.backgroundColor);
+        });
+
     </script>
+
+    <!-- Eruda is console for mobile browsers -->
+    <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
+    <script>eruda.init();</script>
+
+
+
+
+
+
     <script>
         let coins = 0;
         let energy = 1000;
