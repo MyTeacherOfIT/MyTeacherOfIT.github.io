@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://myteacherofit.github.io/app.css">
 </head>
 <body>
-    <p></p>
+    <p>Привет!</p>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
         Telegram.WebApp.ready();
@@ -21,10 +21,9 @@
         });	
 
         Telegram.WebApp.SettingsButton.show();
-        function callback {
+        Telegram.WebApp.onEvent('settingsButtonClicked',function {
             Telegram.WebApp.close()
-        };
-        Telegram.WebApp.onEvent('settingsButtonClicked', callback);
+        });
     </script>
     <script src="https://myteacherofit.github.io/app.js"></script>
 </body>
