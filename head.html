@@ -21,7 +21,7 @@
         });	
 
         Telegram.WebApp.SettingsButton.show();
-        Telegram.WebApp.onEvent('settingsButtonClicked',function {
+        Telegram.WebApp.SettingsButton.onClick(function () {
             Telegram.WebApp.close()
         });
     </script>
