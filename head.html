@@ -7,16 +7,17 @@
     <link rel="stylesheet" href="https://myteacherofit.github.io/app.css">
 </head>
 <body style="background:white;">
-    <p>update 4</p>
-    <p>USER ID: <span id="userid></span></p>
+    <p>update 5</p>
+    <p>USER ID:</p>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
         Telegram.WebApp.ready();
         Telegram.WebApp.onEvent('themeChanged', function() {
             document.documentElement.className = Telegram.WebApp.colorScheme;
         });
-        var user_id = Telegram.WebApp.initDataUnsafe.user.id
-        document.getElementById("userid").textContent = str(user_id);
+        let userid = document.createElement('p'); //создаем еще параграф 
+        userid.innerText = `${tg.initDataUnsafe.user.id}`; //показываем user_id
+        usercard.appendChild(userid); //добавляем
         
         Telegram.WebApp.expand();
         Telegram.WebApp.MainButton.show();
