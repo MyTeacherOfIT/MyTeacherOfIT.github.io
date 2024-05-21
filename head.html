@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://myteacherofit.github.io/app.css">
 </head>
 <body>
-    <p>ГУД</p>
+    <p>К</p>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
         Telegram.WebApp.ready();
@@ -16,8 +16,9 @@
         });
         Telegram.WebApp.expand();
         Telegram.WebApp.MainButton.show();
+        Telegram.WebApp.MainButton.text = 'ЗАКРЫТЬ';
         Telegram.WebApp.SettingsButton.show();
-        Telegram.WebApp.SettingsButton.show();
+        Telegram.WebApp.BackButton.show();
         Telegram.WebApp.MainButton.onClick(function () {
             Telegram.WebApp.showAlert('Спасибо, что оплатили! Менеджеру уже сообщили о оплате!')
             Telegram.WebApp.close()
