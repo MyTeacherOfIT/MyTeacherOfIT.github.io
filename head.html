@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://myteacherofit.github.io/app.css">
 </head>
 <body style="background:white;">
-    <p>update 5</p>
+    <p>update 6</p>
     <p>USER ID:</p>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
@@ -16,7 +16,7 @@
             document.documentElement.className = Telegram.WebApp.colorScheme;
         });
         let userid = document.createElement('p'); //создаем еще параграф 
-        userid.innerText = `${tg.initDataUnsafe.user.id}`; //показываем user_id
+        userid.innerText = `${Telegram.WebApp.initDataUnsafe.user.id}`; //показываем user_id
         usercard.appendChild(userid); //добавляем
         
         Telegram.WebApp.expand();
