@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coin Clicker</title>
     <link rel="stylesheet" href="https://myteacherofit.github.io/app.css">
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <script src="https://myteacherofit.github.io/app.js"></script>
     <style>
         body {
           background: var(--tg-color-scheme);
@@ -15,25 +13,20 @@
     </style>
 </head>
 <body>
-    <p style="color:white;">TEXT: </p>
-    <p id="coin"></p>
-    
+    <p></p>
     <script>
-        let MainButton = window.Telegram.WebApp;]
-        
-        MainButton.expand();
-        MainButton.MainButton.text = "Закрыть!)";
-        MainButton.MainButton.setText("Закрыть!)";
-        v.MainButton.textColor = "#F55353";
-        MainButton.MainButton.color = "#143F6B";
-        MainButton.MainButton.setParams({"color": "#143F6B"});
-        
-        var WebApp = window.Telegram.WebApp;
-        var startAppId = WebApp.start_param();
-        document.getElementById('coin').textContent = startAppId;
         WebApp.expand();
+        let WebApp = window.Telegram.WebApp;
+        let startAppId = WebApp.start_param();
+        document.getElementById('coin').textContent = startAppId;
+        var SettingsButton = WebApp.SettingsButton;
         var MainButton = WebApp.MainButton;
-       cMainButton.show();
+        MainButton.show();
+        SettingsButton.show();
     </script>
+    <script src="https://myteacherofit.github.io/app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
+    <script>eruda.init();</script>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </body>
 </html>
