@@ -16,16 +16,15 @@
     <p></p>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
-        var WebApp = window.Telegram.WebApp;
-        var startAppId = WebApp.start_param()
-        
-        WebApp.expand()
-        
-        var MainButton = WebApp.MainButton;
-        var BackButton = WebApp.BackButton;
-        
-        MainButton.show();
-        BackButton.show();
+        Telegram.WebApp.ready();
+        Telegram.WebApp.onEvent('themeChanged', function() {
+            document.documentElement.className = Telegram.WebApp.colorScheme;
+        });        
+        Telegram.WebApp.expand();
+        Telegram.WebApp.MainButton.show();
+        Telegram.WebApp.MainButton.onClick(function () {
+            Telegram.WebApp.showAlert('Main Button was clicked')
+        });	
     </script>
     <script src="https://myteacherofit.github.io/app.js"></script>
 </body>
