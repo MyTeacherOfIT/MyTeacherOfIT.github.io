@@ -5,12 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coin Clicker</title>
     <link rel="stylesheet" href="https://myteacherofit.github.io/app.css">
-    <style>
-        body {
-          background: var(--tg-color-scheme);
-          height: var(--tg-viewport-height);
-        }
-    </style>
 </head>
 <body>
     <p></p>
@@ -19,12 +13,18 @@
         Telegram.WebApp.ready();
         Telegram.WebApp.onEvent('themeChanged', function() {
             document.documentElement.className = Telegram.WebApp.colorScheme;
-        });        
+        });
         Telegram.WebApp.expand();
         Telegram.WebApp.MainButton.show();
         Telegram.WebApp.MainButton.onClick(function () {
             Telegram.WebApp.showAlert('Main Button was clicked')
         });	
+
+        Telegram.WebApp.SettingsButton.show();
+        function callback {
+            Telegram.WebApp.close()
+        };
+        Telegram.WebApp.onEvent('settingsButtonClicked', callback);
     </script>
     <script src="https://myteacherofit.github.io/app.js"></script>
 </body>
