@@ -81,7 +81,7 @@
     </style>
 </head>
 <body>
-    <p>Update 11</p>
+    <p>Update 12</p>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
         Telegram.WebApp.ready();
@@ -91,8 +91,8 @@
         Telegram.WebApp.expand();
         Telegram.WebApp.MainButton.show();
         Telegram.WebApp.MainButton.text = 'Оплатить!';
-        Telegram.WebApp.MainButton.button_color = '#8f8d6a';
-        Telegram.WebApp.MainButton.button_text_color = '#fffee6';
+        Telegram.WebApp.ThemeParams.button_color = '#8f8d6a';
+        Telegram.WebApp.ThemeParams.button_text_color = '#fffee6';
         Telegram.WebApp.MainButton.onClick(function () {
             Telegram.WebApp.MainButton.hide();
         });
