@@ -82,19 +82,19 @@
 </head>
 <body>
     <script src="https://securepay.tinkoff.ru/html/payForm/js/tinkoff_v2.js"></script>
-    <form class="payform-tinkoff" name="payform-tinkoff" id="payform-tinkoff">
+    <form class="payform-tinkoff" name="payform-tinkoff" onsubmit="pay(this); return false;">
         <input class="payform-tinkoff-row" type="hidden" name="terminalkey" value="TinkoffBankTest">
         <input class="payform-tinkoff-row" type="hidden" name="frame" value="false">
         <input class="payform-tinkoff-row" type="hidden" name="language" value="ru">
-        <input class="payform-tinkoff-row" type="hidden" name="receipt" value="">
-        <span>Стоимость заказа: </span><input class="payform-tinkoff-row" type="text" placeholder="Сумма заказа" name="amount" value="12314">
-        <span>Номер заказа: </span><input class="payform-tinkoff-row" type="hidden" placeholder="Номер заказа" name="order" value="D5481601">
-        <span>Описание заказа: </span><input class="payform-tinkoff-row" type="text" placeholder="Описание заказа" name="description" value="Nike Air Force '01">
-        <span>ФИО плательщика: </span><input class="payform-tinkoff-row" type="text" placeholder="ФИО плательщика" name="name" value="Шанин Дмитрий Евгеньевич">
-        <span>E-mail: </span><input class="payform-tinkoff-row" type="email" placeholder="E-mail" name="email" value="shannin.de@gmail.com">
-        <span>Контактный телефон: </span><input class="payform-tinkoff-row" type="tel" placeholder="Контактный телефон" name="phone" value="+7(962)368-99-90">
+        <input class="payform-tinkoff-row" type="text" placeholder="Сумма заказа" name="amount" required>
+        <input class="payform-tinkoff-row" type="hidden" placeholder="Номер заказа" name="order">
+        <input class="payform-tinkoff-row" type="text" placeholder="Описание заказа" name="description">
+        <input class="payform-tinkoff-row" type="text" placeholder="ФИО плательщика" name="name">
+        <input class="payform-tinkoff-row" type="email" placeholder="E-mail" name="email">
+        <input class="payform-tinkoff-row" type="tel" placeholder="Контактный телефон" name="phone">
         <input class="payform-tinkoff-row payform-tinkoff-btn" type="submit" value="Оплатить">
-    </form>
+    </form>  
+    
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
         Telegram.WebApp.ready();
@@ -110,6 +110,5 @@
             Telegram.WebApp.MainButton.hide();
         });
     </script>
-    <script src="https://myteacherofit.github.io/app.js"></script>
 </body>
 </html>
