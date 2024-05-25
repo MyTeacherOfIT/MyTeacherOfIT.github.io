@@ -41,10 +41,7 @@
 </head>
 <body>
     <script src="https://securepay.tinkoff.ru/html/payForm/js/tinkoff_v2.js"></script>
-    <button id="payform-tinkoff" style="visibility: hidden;" oncick="paid()">
-
-            
-    <!--<form class="payform-tinkoff" name="payform-tinkoff" id="payform-tinkoff" style="visibility: hidden;">
+    <form class="payform-tinkoff" name="payform-tinkoff" id="payform-tinkoff" style="visibility: hidden;">
         <input class="payform-tinkoff-row" type="hidden" name="terminalkey" value="TinkoffBankTest">
         <input class="payform-tinkoff-row" type="hidden" name="frame" value="false">
         <input class="payform-tinkoff-row" type="hidden" name="language" value="ru">
@@ -55,7 +52,7 @@
         <span>ФИО плательщика: </span><input class="payform-tinkoff-row" type="text" placeholder="ФИО плательщика" name="name" value="Шанин Дмитрий Евгеньевич">
         <span>E-mail: </span><input class="payform-tinkoff-row" type="email" placeholder="E-mail" name="email" value="shannin.de@gmail.com">
         <span>Контактный телефон: </span><input class="payform-tinkoff-row" type="tel" placeholder="Контактный телефон" name="phone" value="+7(962)368-99-90">
-    </form>-->
+    </form>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
         Telegram.WebApp.ready();
@@ -69,15 +66,7 @@
         Telegram.WebApp.MainButton.button_text_color = '#fffee6';
         Telegram.WebApp.MainButton.onClick(function () {
             Telegram.WebApp.MainButton.hide();
-            document.getElementById('payform-tinkoff').style.visibility = 'visible';
         });
-        function paid(){
-            Telegram.WebApp.MainButton.show();
-            Telegram.WebApp.MainButton.text = 'Закрыть!';
-            Telegram.WebApp.MainButton.onClick(function () {
-                Telegram.WebApp.MainButton.close();
-            });
-
     </script>
     <script src="https://myteacherofit.github.io/app.js"></script>
 </body>
