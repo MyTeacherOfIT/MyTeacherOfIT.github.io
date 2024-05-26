@@ -65,7 +65,7 @@ body {
 	border: 1px solid #fffee6;
 	padding: 10px 15px;
 	background: #454321;
-	font-size: 7px;
+	font-size: 10px;
 }
 
 .table thead tr th:first-child {
@@ -85,7 +85,7 @@ body {
 	text-align:center;
 	border: 1px solid #fffee6;
 	padding: 10px 15px;
-	font-size: 7px;
+	font-size: 10px;
 	vertical-align: top;
 }
 
@@ -118,7 +118,7 @@ body {
 }
 
 .tabletext {
-    font-size: 3px;
+    font-size: 8px;
     color: #fffee6;
 }
 
@@ -152,6 +152,6 @@ body {
 }
 .status-text {
     fill: #fffee6;
-    font-size: 6px;
+    font-size: 8px;
     font-family: sans-serif;
 }
