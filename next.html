@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/main.css">
 </head>
 <body class="text">
-    <p>update 30</p>
+    <p>update 31</p>
     <p class="playfair maintext">Мой заказ</p>
     <span class="playfair maintext2">D5481604</span><br><br><br><br>
     <table class="table montserrat tabletext">
@@ -44,15 +44,15 @@
     </script>
     <script>
         function modifyText() {
-            Telegram.WebApp.MainButton.disable()
+            if Telegram.WebApp.MainButton.isActive {
+                Telegram.WebApp.MainButton.disable()                
+            } else {
+                Telegram.WebApp.MainButton.enable()
+            }
         };
         
         var el = document.getElementById("outside");
         el.addEventListener("click", modifyText, false);
-
-        document.addEvent('click', function () {
-            Telegram.WebApp.MainButton.disable() //скрываем кнопку  
-        });
     </script>
     <script>
         const statuses = [
