@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="30">
     <title>AEB</title>
     <link rel="stylesheet" href="https://myteacherofit.github.io/app.css">
     <link rel="stylesheet" href="/main.css">
 </head>
 <body class="text">
-    <p>update 43</p>
+    <p>update 44</p>
     <p class="playfair maintext">Мой заказ</p>
     <span class="playfair maintext2">D5481604</span><br><br><br><br>
     <table class="table montserrat tabletext">
@@ -89,6 +90,11 @@
         } else {
             // pass
         };
+    </script>
+    <script>
+        setInterval(() => {
+            $('#content').load('content-to-refresh.html');
+        }, 30000);
     </script>
 </body>
 </html>
