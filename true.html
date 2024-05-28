@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coin Clicker</title>
+</head>
+<body class="text">
+    <p>update 28</p>
+    <script>
+        Telegram.WebApp.ready();
+        Telegram.WebApp.onEvent('themeChanged', function() {
+            document.documentElement.className = Telegram.WebApp.colorScheme;
+        });
+        Telegram.WebApp.MainButton.setParams({
+            text: 'Оплатить!',
+            "color": "#8f8d6a",
+            "textColor": "#fffee6"
+        });
+        Telegram.WebApp.MainButton.onClick(function () {
+            Telegram.WebApp.MainButton.hide();
+        });	
+        Telegram.WebApp.MainButton.show();
+    </script>
+</body>
+</html>
