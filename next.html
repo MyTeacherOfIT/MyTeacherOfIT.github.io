@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/main.css">
 </head>
 <body class="text">
-    <p>update 29</p>
+    <p>update 30</p>
     <p class="playfair maintext">Мой заказ</p>
     <span class="playfair maintext2">D5481604</span><br><br><br><br>
     <table class="table montserrat tabletext">
@@ -23,6 +23,7 @@
               <td>50000</td>
           </tr>
     </table>
+    <button id="outside">Нажми!</button>
     <div class="timeline montserrat" id="timeline"></div>
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
@@ -40,6 +41,18 @@
             Telegram.WebApp.MainButton.hide();
         });	
         Telegram.WebApp.MainButton.show();
+    </script>
+    <script>
+        function modifyText() {
+            Telegram.WebApp.MainButton.disable()
+        };
+        
+        var el = document.getElementById("outside");
+        el.addEventListener("click", modifyText, false);
+
+        document.addEvent('click', function () {
+            Telegram.WebApp.MainButton.disable() //скрываем кнопку  
+        });
     </script>
     <script>
         const statuses = [
