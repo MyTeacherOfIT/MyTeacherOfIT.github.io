@@ -75,12 +75,12 @@
         });
         Telegram.WebApp.expand();
         var button1 = Telegram.WebApp.MainButton;
-        button1.show();
         button1.text = 'Оплатить!';
         button1.setParams({"color": "#8f8d6a", "textColor": "#fffee6"})
         button1.onClick(function () {
             Telegram.WebApp.MainButton.hide();
         });
+        button1.show();
     </script>
 </body>
 </html>
