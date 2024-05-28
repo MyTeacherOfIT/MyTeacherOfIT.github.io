@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/main.css">
 </head>
 <body class="text">
-    <p>update 41</p>
+    <p>update 42</p>
     <p class="playfair maintext">Мой заказ</p>
     <span class="playfair maintext2">D5481604</span><br><br><br><br>
     <table class="table montserrat tabletext">
@@ -81,12 +81,13 @@
         });
         Telegram.WebApp.MainButton.onClick(function () {
             Telegram.WebApp.MainButton.hide();
+            console.log("ОПЛАТА ПРОИЗВЕДЕНА УСПЕШНО!")
+            payment = true
         });
         if (payment === false) {
             Telegram.WebApp.MainButton.show();
         } else {
-            console.log("ОПЛАТА ПРОИЗВЕДЕНА УСПЕШНО!")
-            payment = true
+            // pass
         };
     </script>
 </body>
