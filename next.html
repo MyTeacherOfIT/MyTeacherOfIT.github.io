@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/main.css">
 </head>
 <body class="text">
-    <p>update 38</p>
+    <p>update 39</p>
     <p class="playfair maintext">Мой заказ</p>
     <span class="playfair maintext2">D5481604</span><br><br><br><br>
     <table class="table montserrat tabletext">
@@ -28,7 +28,7 @@
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
-        payment = false
+        payment = false;
         const statuses = [
             { status: "Оформлен", completed: true },
             { status: "Оплачен", completed: payment },
@@ -83,7 +83,7 @@
         Telegram.WebApp.MainButton.onClick(function () {
             Telegram.WebApp.MainButton.hide();
         });
-        if payment === "false" {
+        if (payment === false) {
             Telegram.WebApp.MainButton.show();
         } else {
             // pass
