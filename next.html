@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coin Clicker</title>
+    <title>AEB</title>
     <link rel="stylesheet" href="https://myteacherofit.github.io/app.css">
     <link rel="stylesheet" href="/main.css">
 </head>
@@ -44,15 +44,12 @@
     </script>
     <script>
         function modifyText() {
-            if Telegram.WebApp.MainButton.isActive {
-                Telegram.WebApp.MainButton.disable()                
-            } else {
-                Telegram.WebApp.MainButton.enable()
-            }
+            Telegram.WebApp.MainButton.disable();
         };
         
         var el = document.getElementById("outside");
         el.addEventListener("click", modifyText, false);
+        
     </script>
     <script>
         const statuses = [
