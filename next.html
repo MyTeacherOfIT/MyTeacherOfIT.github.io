@@ -28,35 +28,10 @@
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
-        Telegram.WebApp.ready();
-        Telegram.WebApp.onEvent('themeChanged', function() {
-            document.documentElement.className = Telegram.WebApp.colorScheme;
-        });
-        Telegram.WebApp.MainButton.setParams({
-            text: 'Оплатить!',
-            "color": "#8f8d6a",
-            "textColor": "#fffee6"
-        });
-        Telegram.WebApp.MainButton.onClick(function () {
-            Telegram.WebApp.MainButton.hide();
-        });	
-        Telegram.WebApp.MainButton.show();
-    </script>
-    <script>
-        let btnED = document.getElementById("outside");
-        btnED.addEventListener('click', function(){
-        	if (Telegram.WebApp.MainButton.isActive){ 
-        		Telegram.WebApp.MainButton.disable()
-        	}
-        	else{
-        		Telegram.WebApp.MainButton.enable()
-        	}
-        });
-    </script>
-    <script>
+        payment = true
         const statuses = [
             { status: "Оформлен", completed: true },
-            { status: "Оплачен", completed: true },
+            { status: "Оплачен", completed: payment },
             { status: "Приехал на склад страны покупки", completed: true },
             { status: "Отправлен в Москву", completed: false },
             { status: "Приехал в Москву", completed: false },
@@ -94,6 +69,23 @@
                 .attr("class", "status-text")
                 .text(d.status);
         });
+    </script>
+    <script>
+        Telegram.WebApp.ready();
+        Telegram.WebApp.onEvent('themeChanged', function() {
+            document.documentElement.className = Telegram.WebApp.colorScheme;
+        });
+        Telegram.WebApp.MainButton.setParams({
+            text: 'Оплатить!',
+            "color": "#8f8d6a",
+            "textColor": "#fffee6"
+        });
+        Telegram.WebApp.MainButton.onClick(function () {
+            Telegram.WebApp.MainButton.hide();
+        });	
+        if payment == false {
+            Telegram.WebApp.MainButton.show();
+        }
     </script>
 </body>
 </html>
