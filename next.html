@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/main.css">
 </head>
 <body class="text">
-    <p>update 40</p>
+    <p>update 41</p>
     <p class="playfair maintext">Мой заказ</p>
     <span class="playfair maintext2">D5481604</span><br><br><br><br>
     <table class="table montserrat tabletext">
@@ -31,10 +31,10 @@
         const statuses = [
             { status: "Оформлен", completed: true },
             { status: "Оплачен", completed: payment },
-            { status: "Приехал на склад страны покупки", completed: false },
+            { status: "Приехал на склад", completed: false },
             { status: "Отправлен в Москву", completed: false },
             { status: "Приехал в Москву", completed: false },
-            { status: "Передан в службу доставки", completed: false },
+            { status: "Передан в доставку", completed: false },
             { status: "Прибыл", completed: false }
         ];
         const margin = { top: 40, right: 20, bottom: 20, left: 20 };
@@ -85,7 +85,8 @@
         if (payment === false) {
             Telegram.WebApp.MainButton.show();
         } else {
-            // pass
+            console.log("ОПЛАТА ПРОИЗВЕДЕНА УСПЕШНО!")
+            payment = true
         };
     </script>
 </body>
