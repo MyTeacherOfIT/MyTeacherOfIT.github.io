@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/main.css">
 </head>
 <body class="text">
-    <p>update 26</p>
+    <p>update 27</p>
     <p class="playfair maintext">Мой заказ</p>
     <span class="playfair maintext2">D5481604</span><br><br><br><br>
     <table class="table montserrat tabletext">
@@ -69,18 +69,20 @@
         });
     </script>
     <script>
+
         Telegram.WebApp.ready();
         Telegram.WebApp.onEvent('themeChanged', function() {
             document.documentElement.className = Telegram.WebApp.colorScheme;
         });
-        Telegram.WebApp.expand();
-        var button1 = Telegram.WebApp.MainButton;
-        button1.text = 'Оплатить!';
-        button1.setParams({"color": "#8f8d6a", "textColor": "#fffee6"})
-        button1.onClick(function () {
-            Telegram.WebApp.MainButton.hide();
+        Telegram.WebApp.MainButton.setParams({
+            text: 'Оплатить!',
+            "color": "#8f8d6a",
+            "textColor": "#fffee6"
         });
-        button1.show();
+        Telegram.WebApp.MainButton.onClick(function () {
+            Telegram.WebApp.MainButton.hide();
+        });	
+        Telegram.WebApp.MainButton.show();
     </script>
 </body>
 </html>
