@@ -27,6 +27,21 @@
     <div class="timeline montserrat" id="timeline"></div>
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script>
+        Telegram.WebApp.ready();
+        Telegram.WebApp.onEvent('themeChanged', function() {
+            document.documentElement.className = Telegram.WebApp.colorScheme;
+        });
+        Telegram.WebApp.MainButton.setParams({
+            text: 'Оплатить!',
+            "color": "#8f8d6a",
+            "textColor": "#fffee6"
+        });
+        Telegram.WebApp.MainButton.onClick(function () {
+            Telegram.WebApp.MainButton.hide();
+        });	
+        Telegram.WebApp.MainButton.show();
+    </script>
+    <script>
         const statuses = [
             { status: "Оформлен", completed: true },
             { status: "Оплачен", completed: true },
@@ -67,22 +82,6 @@
                 .attr("class", "status-text")
                 .text(d.status);
         });
-    </script>
-    <script>
-
-        Telegram.WebApp.ready();
-        Telegram.WebApp.onEvent('themeChanged', function() {
-            document.documentElement.className = Telegram.WebApp.colorScheme;
-        });
-        Telegram.WebApp.MainButton.setParams({
-            text: 'Оплатить!',
-            "color": "#8f8d6a",
-            "textColor": "#fffee6"
-        });
-        Telegram.WebApp.MainButton.onClick(function () {
-            Telegram.WebApp.MainButton.hide();
-        });	
-        Telegram.WebApp.MainButton.show();
     </script>
 </body>
 </html>
