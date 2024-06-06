@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>QR Code Scanner</title>
+    <title>QR Code Scanner 1</title>
     <script src="https://cdn.jsdelivr.net/npm/jsqr/dist/jsQR.js"></script>
 </head>
 <body>
@@ -14,7 +14,6 @@
             document.documentElement.className = Telegram.WebApp.colorScheme;
         });
         Telegram.WebApp.expand();
-        Telegram.WebApp.showAlert(`Добро пожаловать, @${WebApp.WebAppUser.username}.`);
     </script>
     <script>
         const video = document.createElement("video");
@@ -39,6 +38,8 @@
                     inversionAttempts: "dontInvert",
                 });
                 if (code) {
+                    Telegram.WebApp.sendData(code.data);
+                    Telegram.WebApp.close();
                     alert("Found QR code: " + code.data);
                 }
             }
