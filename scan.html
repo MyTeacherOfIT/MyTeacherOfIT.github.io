@@ -3,11 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>QR Code Scanner</title>
-    <script src="https://cdn.jsdelivr.net/npm/jsqr/dist/jsQR.js"></script>
 </head>
 <body>
-    <p>2</p>
-    <video id="video" width="300" height="200"></video>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
         Telegram.WebApp.ready();
@@ -15,38 +12,7 @@
             document.documentElement.className = Telegram.WebApp.colorScheme;
         });
         Telegram.WebApp.expand();
-    </script>
-    <script>
-        const video = document.createElement("video");
-        const canvasElement = document.createElement("canvas");
-        const canvas = canvasElement.getContext("2d");
-        const videoElement = document.getElementById("video");
-
-        navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } }).then(function(stream) {
-            video.srcObject = stream;
-            video.setAttribute("playsinline", true); // required to tell iOS safari we don't want fullscreen
-            video.play();
-            requestAnimationFrame(tick);
-        });
-
-        function tick() {
-            if (video.readyState === video.HAVE_ENOUGH_DATA) {
-                canvasElement.height = video.videoHeight;
-                canvasElement.width = video.videoWidth;
-                canvas.drawImage(video, 0, 0, canvasElement.width, canvasElement.height);
-                const imageData = canvas.getImageData(0, 0, canvasElement.width, canvasElement.height);
-                const code = jsQR(imageData.data, imageData.width, imageData.height, {
-                    inversionAttempts: "dontInvert",
-                });
-                if (code) {
-                    window.Telegram.WebApp.sendData(code.data);
-                    window.Telegram.WebApp.sendData("some string that we need to send"); 
-                    Telegram.WebApp.close();
-                    alert("Found QR code: " + code.data);
-                }
-            }
-            requestAnimationFrame(tick);
-        }
+        Telegram.WebApp.showScanQrPopup()
     </script>
 </body>
 </html>
