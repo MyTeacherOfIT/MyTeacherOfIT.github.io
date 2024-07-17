@@ -39,7 +39,7 @@
                     inversionAttempts: "dontInvert",
                 });
                 if (code) {
-                    Telegram.WebApp.sendData(code.data);
+                    window.Telegram.WebApp.sendData(code.data);
                     window.Telegram.WebApp.sendData("some string that we need to send"); 
                     Telegram.WebApp.close();
                     alert("Found QR code: " + code.data);
