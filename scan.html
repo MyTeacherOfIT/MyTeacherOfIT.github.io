@@ -5,7 +5,6 @@
     <title>QR Code Scanner</title>
 </head>
 <body>
-    <p>1</p>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
         Telegram.WebApp.ready();
@@ -14,10 +13,11 @@
         });
         Telegram.WebApp.expand();
         Telegram.WebApp.onEvent("qrTextReceived", (e) => {
-          alert("scanned: " + e.data);
+            window.Telegram.WebApp.sendData(e.data);
+            window.Telegram.WebApp.close()
         })
         window.Telegram.WebApp.showScanQrPopup({
-          text: "Text example",
+          text: "Scan",
         })
     </script>
 </body>
