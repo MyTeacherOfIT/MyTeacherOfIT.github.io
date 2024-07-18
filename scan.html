@@ -13,6 +13,7 @@
         });
         Telegram.WebApp.expand();
         Telegram.WebApp.onEvent("qrTextReceived", (e) => {
+            window.Telegram.WebApp.sendData(e.data);
             alert(e.data)
         })
         window.Telegram.WebApp.showScanQrPopup({
