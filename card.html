@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Scanner</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #video {
+            width: 300px;
+            height: 200px;
+            background-color: #000;
+        }
+
+        #card-info {
+            margin-top: 20px;
+        }
+
+        #card-number, #expiry-date {
+            font-size: 20px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Scan your card</h1>
+    <video id="video" autoplay></video>
+    <div id="card-info">
+        <div id="card-number">Card Number: </div>
+        <div id="expiry-date">Expiry Date: </div>
+    </div>
+
+    <script src="https://unpkg.com/ocrad.js/ocrad.js"></script>
+    <script>
+        const video = document.getElementById('video');
+        const cardNumberElement = document.getElementById('card-number');
+        const expiryDateElement = document.getElementById('expiry-date');
+
+        // Запуск камеры
+        navigator.mediaDevices.getUserMedia({ video: true })
+            .then(stream => {
+                video.srcObject = stream;
+            })
+            .catch(error => {
+                console.error("Error accessing camera: ", error);
+            });
+
+        // Функция для сканирования карты
+        function scanCard() {
+            const canvas = document.createElement('canvas');
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+            // Используем OCR библиотеку для распознавания текста
+            OCRAD(canvas, (text) => {
+                // Простая регулярка для поиска номера карты и даты
+                const cardNumberMatch = text.match(/\b(\d{4}[\s\-]?){4}\b/);
+                const expiryDateMatch = text.match(/\b(0[1-9]|1[0-2])\/?([0-9]{2})\b/);
+
+                if (cardNumberMatch) {
+                    cardNumberElement.textContent = "Card Number: " + cardNumberMatch[0];
+                } else {
+                    cardNumberElement.textContent = "Card Number: Not detected";
+                }
+
+                if (expiryDateMatch) {
+                    expiryDateElement.textContent = "Expiry Date: " + expiryDateMatch[0];
+                } else {
+                    expiryDateElement.textContent = "Expiry Date: Not detected";
+                }
+            });
+        }
+
+        // Скрипт будет пытаться сканировать карту каждые 2 секунды
+        setInterval(scanCard, 2000);
+    </script>
+</body>
+</html>
